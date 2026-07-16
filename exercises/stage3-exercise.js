@@ -18,7 +18,7 @@ import { menuItems, orders } from "../fakeData/foodTruckDB.js";
 // Expected output: { id: 2, name: "Double Engine", ... }
 
 function findMenuItemById(items, itemId) {
-  // TODO: your code here
+   return items.find((item) => item.id === itemId);
 }
 
 console.log(findMenuItemById(menuItems, 2));
@@ -31,7 +31,7 @@ console.log(findMenuItemById(menuItems, 2));
 // Expected output: { id: 5, name: "Spicy Gear Burger", ... }
 
 function findMenuItemByName(items, itemName) {
-  // TODO: your code here
+ return items.find((item) => item.name === itemName);
 }
 
 console.log(findMenuItemByName(menuItems, "Spicy Gear Burger"));
@@ -44,7 +44,7 @@ console.log(findMenuItemByName(menuItems, "Spicy Gear Burger"));
 // Expected output: { id: "ORD-002", customerName: "Somchai", status: "pending" }
 
 function findOrderById(orderList, orderId) {
-  // TODO: your code here
+return orders.find((order) => order.id === orderId);
 }
 
 console.log(findOrderById(orders, "ORD-002"));
@@ -61,7 +61,11 @@ console.log(findOrderById(orders, "ORD-002"));
 //   getMenuItemNameById(menuItems, 99) → "Menu item not found"
 
 function getMenuItemNameById(items, itemId) {
-  // TODO: your code here
+ const foundItem = items.find((item) => itemId === item.id);
+    if (foundItem === undefined) {
+       return " Menu is not found";
+    }
+        return  foundItem.name;
 }
 
 console.log(getMenuItemNameById(menuItems, 2));
